@@ -1,0 +1,391 @@
+:root {
+  --preto: #000000;
+  --vinho: #8B0000;
+  --azul-escuro: #191970;
+  --roxo: #800080;
+  --texto-claro: #f0f0f0;
+  --fundo-card: rgba(255, 255, 255, 0.05);
+  --sombra: rgba(0, 0, 0, 0.5);
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--azul-escuro), var(--preto));
+  color: var(--texto-claro);
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--preto);
+  z-index: 1000;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  color: var(--roxo);
+}
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--texto-claro);
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--vinho);
+}
+
+.menu-hamburger {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--texto-claro);
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--azul-escuro), var(--preto));
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 1s ease-in;
+}
+
+.cta-button {
+  background: var(--roxo);
+  color: var(--texto-claro);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px var(--sombra);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px var(--sombra);
+}
+
+/* ZAP BUTTON */
+.zap-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--vinho);
+  color: var(--texto-claro);
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px var(--sombra);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.zap-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px var(--sombra);
+}
+
+/* SEÇÕES GERAIS */
+section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* SOBRE */
+.sobre p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* TRANÇAS */
+.trancas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.tranca-card {
+  background: var(--fundo-card);
+  border-radius: 10px;
+  padding: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: slideIn 0.5s ease-in;
+}
+
+.tranca-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px var(--sombra);
+}
+
+.tranca-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.tranca-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  margin: 1rem 0 0.5rem;
+}
+
+.tranca-card p {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+}
+
+/* VALORES */
+.valores table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 1rem;
+  border-collapse: collapse;
+  background: var(--fundo-card);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px var(--sombra);
+}
+
+.valores th,
+.valores td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+.valores th {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.valores td {
+  font-size: 1rem;
+}
+
+.valores .highlight {
+  font-style: italic;
+  color: var(--vinho);
+}
+
+/* ATENDIMENTO */
+.atendimento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.atendimento-grid p {
+  font-size: 1rem;
+}
+
+.atendimento table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: var(--fundo-card);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px var(--sombra);
+}
+
+.atendimento th,
+.atendimento td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.atendimento th {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* AGENDAMENTO */
+.agendamento p {
+  margin-bottom: 2rem;
+}
+
+/* ÁREA PRIVADA */
+.login-form input {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  margin-right: 1rem;
+  font-size: 1rem;
+}
+
+.login-form button {
+  padding: 0.8rem 1.5rem;
+  background: var(--roxo);
+  color: var(--texto-claro);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-form button:hover {
+  background: var(--vinho);
+}
+
+/* FOOTER */
+.footer {
+  background: var(--preto);
+  padding: 2rem;
+  text-align: center;
+  color: var(--texto-claro);
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+
+.footer-section h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-section p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--preto);
+    padding: 1rem;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    margin: 1rem 0;
+  }
+
+  .menu-hamburger {
+    display: block;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .zap-btn {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .tranca-card img {
+    height: 150px;
+  }
+
+  .valores table,
+  .atendimento table {
+    font-size: 0.85rem;
+  }
+
+  .trancas h2,
+  .valores h2,
+  .atendimento h2,
+  .agendamento h2,
+  .privado h2 {
+    font-size: 2rem;
+  }
+}
