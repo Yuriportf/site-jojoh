@@ -409,13 +409,13 @@ section h2 {
 
 .highlight {
   font-style: italic;
-  color: var(--vinho);
+  color:white;
   font-weight: 600;
   font-size: 1.2rem;
   margin-top: 1rem;
   display: inline-block;
   padding: 0.5rem 1.5rem;
-  background: rgba(75, 0, 130, 0.2);
+  background: linear-gradient(135deg, var(--roxo), var(--vinho));
   border-radius: 30px;
   border: 1px solid var(--vinho);
 }
