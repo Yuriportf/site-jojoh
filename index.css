@@ -1,6 +1,6 @@
 :root {
   --preto: #000000;
-  --vinho: #8B0000;
+  --vinho: #4B0082; /* Substituído por um vermelho vinho com tom mais roxo */
   --azul-escuro: #191970;
   --roxo: #800080;
   --roxo-claro: #a040a0;
@@ -67,7 +67,8 @@ body {
   content: '';
   position: absolute;
   bottom: -5px;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 0;
   height: 2px;
   background: var(--vinho);
@@ -196,7 +197,7 @@ body {
 
 .cta-button:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(139, 0, 0, 0.6);
+  box-shadow: 0 8px 25px rgba(75, 0, 130, 0.6);
 }
 
 .cta-button:hover::before {
@@ -311,12 +312,12 @@ section h2 {
 
 .tranca-card:hover {
   transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 15px 30px rgba(139, 0, 0, 0.4);
+  box-shadow: 0 15px 30px rgba(75, 0, 130, 0.4);
 }
 
 .tranca-card img {
   width: 100%;
-  height: 220px;
+  height: 200px; /* Padronizando tamanho da imagem */
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -359,7 +360,7 @@ section h2 {
 
 .carousel-nav button:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 15px rgba(139, 0, 0, 0.5);
+  box-shadow: 0 6px 15px rgba(75, 0, 130, 0.5);
 }
 
 /* VALORES */
@@ -414,7 +415,7 @@ section h2 {
   margin-top: 1rem;
   display: inline-block;
   padding: 0.5rem 1.5rem;
-  background: rgba(139, 0, 0, 0.2);
+  background: rgba(75, 0, 130, 0.2);
   border-radius: 30px;
   border: 1px solid var(--vinho);
 }
@@ -441,7 +442,7 @@ section h2 {
 
 .info-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(139, 0, 0, 0.4);
+  box-shadow: 0 15px 30px rgba(75, 0, 130, 0.4);
 }
 
 .info-card i {
@@ -565,7 +566,7 @@ section h2 {
 
 .login-form button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(139, 0, 0, 0.5);
+  box-shadow: 0 8px 20px rgba(75, 0, 130, 0.5);
 }
 
 /* FOOTER */
@@ -602,7 +603,7 @@ section h2 {
 .footer-section {
   flex: 1;
   min-width: 300px;
-  text-align: left;
+  text-align: center; /* Centralizando texto do footer */
 }
 
 .footer-section h3 {
@@ -618,7 +619,8 @@ section h2 {
   content: '';
   position: absolute;
   bottom: -10px;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 50px;
   height: 3px;
   background: var(--vinho);
@@ -628,6 +630,7 @@ section h2 {
   font-size: 1rem;
   margin: 1rem 0;
   display: flex;
+  justify-content: center; /* Centralizando texto do footer */
   align-items: center;
   gap: 10px;
 }
@@ -637,6 +640,7 @@ section h2 {
   padding-top: 1.5rem;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
+  text-align: center; /* Centralizando texto do footer */
 }
 
 /* ANIMAÇÕES */
@@ -665,22 +669,28 @@ section h2 {
 @media (max-width: 768px) {
   .nav-links {
     display: none;
-    position: absolute;
-    top: 70px;
+    position: fixed; /* Alterado para fixed para ocupar toda a tela */
+    top: 0;
     left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    padding: 1rem;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95); /* Mesma cor do header */
+    padding: 2rem;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
   }
 
   .nav-links.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .nav-links ul {
     flex-direction: column;
     text-align: center;
+    width: 100%;
   }
 
   .nav-links a {
