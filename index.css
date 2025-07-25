@@ -1,6 +1,6 @@
 :root {
   --preto: #000000;
-  --vinho: #4B0082; /* Substituído por um vermelho vinho com tom mais roxo */
+  --vinho: #4B0082;
   --azul-escuro: #191970;
   --roxo: #800080;
   --roxo-claro: #a040a0;
@@ -29,8 +29,10 @@ body {
 
 /* NAVBAR */
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +44,7 @@ body {
 
 .logo {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 4vw, 1.8rem);
   color: var(--roxo);
   text-shadow: 0 0 10px rgba(128, 0, 128, 0.7);
   letter-spacing: 2px;
@@ -51,13 +53,13 @@ body {
 .nav-links ul {
   display: flex;
   list-style: none;
+  gap: 1.5rem;
 }
 
 .nav-links a {
   color: var(--texto-claro);
   text-decoration: none;
-  margin: 0 1rem;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   transition: all 0.3s ease;
   position: relative;
   font-weight: 500;
@@ -98,16 +100,16 @@ body {
   right: 2rem;
   background: linear-gradient(135deg, #25D366, #128C7E);
   color: var(--texto-claro);
-  padding: 1rem 1.5rem;
+  padding: 0.8rem 1.2rem;
   border-radius: 50px;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   font-weight: 600;
   box-shadow: 0 4px 15px var(--sombra);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   z-index: 999;
   animation: pulse 2s infinite;
 }
@@ -117,7 +119,7 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
   height: 100vh;
   display: flex;
@@ -127,6 +129,8 @@ body {
   position: relative;
   overflow: hidden;
   background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDB2aCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48Y2lyY2xlIGN4PSIxMCIgY3k9IjEwIiByPSIwLjUiIGZpbGw9IiMxOTE5NzAiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+  background-size: cover;
+  background-position: center;
 }
 
 .hero::before {
@@ -143,16 +147,56 @@ body {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 1200px;
+  width: 90%;
   padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* INSTAGRAM BUTTON */
+.insta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 2;
+}
+
+.insta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.insta-btn i {
+  font-size: 1.2rem;
+}
+
+/* TEXT STYLES */
+.hero-content h1,
+.hero-content h2,
+.hero-content h3,
+.hero-content p {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  line-height: 1.5;
+  margin: 0.5em 0;
+  color: #fff;
 }
 
 .hero-content h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 2rem;
   text-shadow: 0 0 15px rgba(128, 0, 128, 0.8);
-  line-height: 1.2;
   background: linear-gradient(to right, #f0f0f0, #d8bfd8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -160,20 +204,55 @@ body {
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* IMAGE STYLES */
+.im1 {
+  margin: 2rem auto;
+  width: clamp(200px, 50%, 600px);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* IMAGE STYLES */
+.nova {
+  margin: -80px auto -150px auto;
+  width: clamp(200px, 50%, 600px);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .nova {
+    width: clamp(150px, 80%, 400px);
+    margin: -40px auto -130px auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .nova {
+    width: clamp(120px, 90%, 300px);
+    margin: -70px auto -150px auto;
+  }
+}
+
+/* CTA BUTTON */
 .cta-button {
   background: linear-gradient(135deg, var(--roxo), var(--vinho));
   color: var(--texto-claro);
   padding: 1rem 2.5rem;
   border-radius: 50px;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   font-weight: 600;
   box-shadow: 0 4px 15px var(--sombra);
   transition: all 0.3s ease;
@@ -206,7 +285,7 @@ body {
 
 /* SEÇÕES GERAIS */
 section {
-  padding: 5rem 2rem;
+  padding: 5rem 1rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -226,7 +305,7 @@ section::before {
 
 section h2 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   margin-bottom: 3rem;
   text-shadow: 0 0 10px rgba(128, 0, 128, 0.5);
   background: linear-gradient(to right, #f0f0f0, #d8bfd8);
@@ -245,7 +324,7 @@ section h2 {
 .sobre p {
   max-width: 800px;
   margin: 0 auto;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   line-height: 1.8;
   background: var(--fundo-card);
   padding: 2rem;
@@ -275,7 +354,7 @@ section h2 {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 1rem 0 3rem;
   max-width: 100%;
   margin: 0 auto;
@@ -287,7 +366,7 @@ section h2 {
 }
 
 .tranca-card {
-  flex: 0 0 300px;
+  flex: 0 0 clamp(260px, 30vw, 300px);
   background: var(--fundo-card);
   border-radius: 15px;
   padding: 1.5rem;
@@ -317,7 +396,7 @@ section h2 {
 
 .tranca-card img {
   width: 100%;
-  height: 200px; /* Padronizando tamanho da imagem */
+  height: 300px;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -327,17 +406,17 @@ section h2 {
 .tranca-card h3 {
   font-family: 'Orbitron', sans-serif;
   margin: 1rem 0 0.5rem;
-  font-size: 1.4rem;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
   color: var(--roxo-claro);
 }
 
 .tranca-card .price {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   font-weight: 700;
-  color: var(--vinho);
+  color: #f0f0f0;
 }
 
-/* Carousel Navigation */
+/* CAROUSEL NAVIGATION */
 .carousel-nav {
   display: flex;
   justify-content: center;
@@ -390,13 +469,13 @@ section h2 {
 
 .valores th {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   background: rgba(128, 0, 128, 0.3);
-  color: var(--roxo-claro);
+  color: #ffffff;
 }
 
 .valores td {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
 }
 
 .valores tr:last-child td {
@@ -409,9 +488,9 @@ section h2 {
 
 .highlight {
   font-style: italic;
-  color:white;
+  color: white;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   margin-top: 1rem;
   display: inline-block;
   padding: 0.5rem 1.5rem;
@@ -420,14 +499,31 @@ section h2 {
   border: 1px solid var(--vinho);
 }
 
+.highlight1 {
+  font-style: italic;
+  color: white;
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: red;
+  border-radius: 30px;
+  border: 1px solid var(--vinho);
+}
+
 /* ATENDIMENTO */
 .atendimento-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
   margin-bottom: 3rem;
   max-width: 1000px;
   margin: 0 auto 3rem;
+}
+
+#at {
+  margin-bottom: 40px;
 }
 
 .info-card {
@@ -458,7 +554,7 @@ section h2 {
 }
 
 .info-card p {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
 }
 
 .atendimento table {
@@ -483,9 +579,9 @@ section h2 {
 
 .atendimento th {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   background: rgba(128, 0, 128, 0.3);
-  color: var(--roxo-claro);
+  color: white;
 }
 
 .atendimento tr:last-child td {
@@ -513,66 +609,17 @@ section h2 {
 }
 
 .agendamento p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* ÁREA PRIVADA */
-.login-form {
-  max-width: 400px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.login-form input {
-  padding: 1rem;
-  border: none;
-  border-radius: 8px;
-  background: var(--fundo-card);
-  color: var(--texto-claro);
-  font-size: 1rem;
-  border: 1px solid rgba(128, 0, 128, 0.3);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.login-form input:focus {
-  outline: none;
-  border-color: var(--roxo-claro);
-  box-shadow: 0 0 15px rgba(128, 0, 128, 0.5);
-}
-
-.login-form input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.login-form button {
-  padding: 1rem;
-  background: linear-gradient(135deg, var(--roxo), var(--vinho));
-  color: var(--texto-claro);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-.login-form button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(75, 0, 130, 0.5);
-}
-
 /* FOOTER */
 .footer {
   background: rgba(0, 0, 0, 0.9);
-  padding: 3rem 2rem;
+  padding: 3rem 1rem;
   text-align: center;
   color: var(--texto-claro);
   position: relative;
@@ -594,43 +641,30 @@ section h2 {
 .footer-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 3rem;
+  justify-content: center;
+  gap: 2rem;
   max-width: 1200px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 2rem;
 }
 
 .footer-section {
   flex: 1;
-  min-width: 300px;
-  text-align: center; /* Centralizando texto do footer */
+  min-width: 250px;
+  text-align: center;
 }
 
 .footer-section h3 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   margin-bottom: 1.5rem;
   color: var(--roxo-claro);
-  position: relative;
-  display: inline-block;
-}
-
-.footer-section h3::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 3px;
-  background: var(--vinho);
 }
 
 .footer-section p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   margin: 1rem 0;
   display: flex;
-  justify-content: center; /* Centralizando texto do footer */
+  justify-content: center;
   align-items: center;
   gap: 10px;
 }
@@ -638,9 +672,8 @@ section h2 {
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 1.5rem;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   color: rgba(255, 255, 255, 0.7);
-  text-align: center; /* Centralizando texto do footer */
 }
 
 /* ANIMAÇÕES */
@@ -662,76 +695,97 @@ section h2 {
 /* RESPONSIVO */
 @media (max-width: 992px) {
   .hero-content h1 {
-    font-size: 3rem;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+  }
+
+  .trancas-grid {
+    gap: 1rem;
   }
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
   .nav-links {
     display: none;
-    position: fixed; /* Alterado para fixed para ocupar toda a tela */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.95); /* Mesma cor do header */
+    background: rgba(0, 0, 0, 0.95);
     padding: 2rem;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    justify-content: center;
+    align-items: center;
   }
 
   .nav-links.active {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 
   .nav-links ul {
     flex-direction: column;
     text-align: center;
-    width: 100%;
+    gap: 2rem;
   }
 
   .nav-links a {
-    display: block;
-    margin: 1.5rem 0;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin: 1rem 0;
   }
 
   .menu-hamburger {
     display: block;
   }
 
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 4rem 0;
+  }
+
+  .hero-content {
+    width: 95%;
+    padding: 0 15px;
+  }
+
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .hero-content p {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+  }
+
+  .im1, #nova {
+    width: clamp(150px, 80%, 400px);
+    margin: 1.5rem auto;
   }
 
   .zap-btn {
     bottom: 1rem;
     right: 1rem;
-    padding: 0.8rem 1.2rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
   }
 
   .footer-content {
     flex-direction: column;
-    text-align: center;
+    gap: 1.5rem;
   }
 
   .footer-section {
-    text-align: center;
-  }
-
-  .footer-section h3::after {
-    left: 50%;
-    transform: translateX(-50%);
+    min-width: 200px;
   }
 }
 
 @media (max-width: 576px) {
   .hero-content h1 {
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 4vw, 2rem);
   }
 
   section {
@@ -739,16 +793,16 @@ section h2 {
   }
 
   section h2 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
   }
 
   .tranca-card {
-    flex: 0 0 280px;
+    flex: 0 0 clamp(240px, 80vw, 280px);
   }
 
   .valores table,
   .atendimento table {
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
   }
 
   .valores th,
@@ -759,26 +813,30 @@ section h2 {
   }
 
   .carousel-nav button {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     font-size: 1.2rem;
   }
 }
 
 @media (max-width: 400px) {
-  .hero-content h1 {
-    font-size: 1.8rem;
-  }
-
   .navbar {
-    padding: 1rem;
+    padding: 0.8rem 1rem;
   }
 
   .logo {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
   }
 
   .tranca-card {
-    flex: 0 0 260px;
+    flex: 0 0 clamp(220px, 90vw, 260px);
+  }
+
+  .im1   {
+    width: clamp(120px, 90%, 300px);
   }
 }
